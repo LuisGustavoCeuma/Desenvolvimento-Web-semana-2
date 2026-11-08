@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python Passo a Passo – Blog</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #4c565cd0;
+    }
+
+    /* Container do formulário */
+    form {
+      max-width: 520px;
+      padding: 24px;
+      background-color: #ffffff;
+      border: 1px solid #c5d0d6;
+      border-radius: 8px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Cada campo: label em cima, input embaixo */
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    label {
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    select {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #8a9ba4;
+      border-radius: 6px;
+    }
+
+    /* Bônus: nome e e-mail lado a lado */
+    .linha {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .linha .campo {
+      width: 48%;
+    }
+
+    /* Checkbox e texto na mesma linha */
+    .campo-termos {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .campo-termos label {
+      font-weight: normal;
+    }
+
+    /* Botão de envio */
+    button {
+      padding: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #ffffff;
+      background-color: #1f6f8b;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #15506a;
+    }
+
+    img {
+      border-radius: 20px;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Python Passo a Passo</h1>
+    <nav aria-label="Navegação principal">
+      <a href="#post-variaveis">Variáveis</a> |
+      <a href="#post-listas">Listas</a> |
+      <a href="#inscricao">Inscrição</a>
+    </nav>
+  </header>
+
+  <main>
+    <article id="post-variaveis">
+      <h2>Variáveis: onde seus dados ficam guardados</h2>
+      <p>
+        Uma variável é um nome que aponta para um valor na memória. Em Python você
+        não declara o tipo: basta escrever <code>idade = 25</code> e a linguagem
+        descobre sozinha que se trata de um número inteiro.
+      </p>
+      <img
+        alt="Ilustração de uma caixa rotulada como idade contendo o número 25"
+        width="300" height="120"
+        src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 120'%3E%3Crect width='300' height='120' fill='%23dddddd'/%3E%3Crect x='80' y='25' width='140' height='70' fill='%23ffffff' stroke='%23000000'/%3E%3Ctext x='150' y='52' font-size='16' text-anchor='middle'%3Eidade%3C/text%3E%3Ctext x='150' y='80' font-size='22' text-anchor='middle'%3E25%3C/text%3E%3C/svg%3E">
+    </article>
+
+    <article id="post-listas">
+      <h2>Listas: vários valores em uma única variável</h2>
+      <p>
+        Listas guardam itens em ordem e podem ser alteradas. Com
+        <code>frutas = ["maçã", "uva"]</code> você acessa o primeiro item por
+        <code>frutas[0]</code>, porque a contagem começa no zero.
+      </p>
+      <img
+        alt="Ilustração de três quadrados em sequência numerados com os índices 0, 1 e 2"
+        width="300" height="120"
+        src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 120'%3E%3Crect width='300' height='120' fill='%23dddddd'/%3E%3Crect x='45' y='30' width='60' height='40' fill='%23ffffff' stroke='%23000000'/%3E%3Crect x='120' y='30' width='60' height='40' fill='%23ffffff' stroke='%23000000'/%3E%3Crect x='195' y='30' width='60' height='40' fill='%23ffffff' stroke='%23000000'/%3E%3Ctext x='75' y='95' font-size='18' text-anchor='middle'%3E0%3C/text%3E%3Ctext x='150' y='95' font-size='18' text-anchor='middle'%3E1%3C/text%3E%3Ctext x='225' y='95' font-size='18' text-anchor='middle'%3E2%3C/text%3E%3C/svg%3E">
+    </article>
+  </main>
+
+  <aside id="inscricao">
+    <h2>Receba os novos posts</h2>
+    <p>Preencha os dados e escolha o assunto que mais interessa a você.</p>
+
+    <form method="get">
+      <div class="linha">
+        <div class="campo">
+          <label for="nome">Nome</label>
+          <input
+            type="text" id="nome" name="nome" required minlength="3"
+            autocomplete="name"
+            pattern="[\p{L} ]*\p{L}[\p{L} ]*\p{L}[\p{L} ]*\p{L}[\p{L} ]*"
+            title="Digite pelo menos 3 letras, sem números ou símbolos.">
+        </div>
+
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="idade">Idade</label>
+        <input type="number" id="idade" name="idade" required min="18" max="120" step="1">
+      </div>
+
+      <div class="campo">
+        <label for="assunto">Assunto de interesse</label>
+        <select id="assunto" name="assunto" required>
+          <option value="" selected disabled>Selecione um assunto</option>
+          <option value="python-basico">Python básico</option>
+          <option value="estruturas-de-dados">Estruturas de dados</option>
+          <option value="projetos-praticos">Projetos práticos</option>
+        </select>
+      </div>
+
+      <div class="campo-termos">
+        <input type="checkbox" id="termos" name="termos" value="aceito" required>
+        <label for="termos">Aceito os termos de uso</label>
+      </div>
+
+      <button type="submit">Quero receber os posts</button>
+    </form>
+  </aside>
+
+  <footer>
+    <p>&copy; 2026 Python Passo a Passo. Projeto de estudo em HTML.</p>
+  </footer>
+
+</body>
+</html>
